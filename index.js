@@ -5,7 +5,7 @@ const div = document.querySelector("div");
 const state = {
     allPuppies: [],
     details: [],
-};~
+};
 
 //fetch and display details of a specific puppy
 const getPuppyDetails = async (id) => {
