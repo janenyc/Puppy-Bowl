@@ -5,7 +5,7 @@ const div = document.querySelector("div");
 const state = {
     allPuppies: [],
     details: [],
-};
+};~
 
 //fetch and display details of a specific puppy
 const getPuppyDetails = async (id) => {
@@ -13,7 +13,7 @@ const getPuppyDetails = async (id) => {
     const response = await fetch(`${apiBaseURL}/players/${id}`);
     const jsonResponse = await response.json();
     const puppyDetails = jsonResponse.data;
-    // Rendering details of the puppy
+    // Rendering details of the puppy~
     renderDetails(puppyDetails);
 };
 // render puppy details on the page
@@ -56,7 +56,6 @@ const renderAllPuppies = () => {
             <img src ="${singlePuppy.imageUrl}">
             <p>${singlePuppy.name}</p>
             <button class="view-button" id="${singlePuppy.id}">View Details</button>
-            <button class="delete-button" id="${singlePuppy.id}">Delete</button>
             </article>`
     )
     .join(" ");
@@ -69,14 +68,6 @@ const renderAllPuppies = () => {
             getPuppyDetails(event.target.id);
         });
     });
-
-    //Add event listener to delete button
-    const deleteButtons = document.querySelectorAll('.delete-button')
-    deleteButtons.forEach((button)=>{
-        button.addEventListener('click', (event)=>{
-            deletePuppy(event.target.id)
-        })
-    })
 };
 getAllPuppies();
 
@@ -114,17 +105,5 @@ const addNewPuppy = async () => {
     statusInput.value = "bench";
 };
 
-//Function to delete a puppy
-const deletePuppy = async()=>{
-    try{
-    const response =await fetch(`${apiBaseURL}/players/${id}`,{
-        method: "DELETE",
-    })
-    const result = await response.json();
-    console.log(result);
-    }
-    catch(err){
-        console.error(err);
-    }
-}
+
 
